@@ -1,4 +1,4 @@
-import { buildURL, formatOutingData } from '../utils/outingUtils';
+import { buildURL, buildEventsUrl, formatOutingData } from '../utils/outingUtils';
 import axios from 'axios';
 
 const initialState = {
@@ -43,51 +43,60 @@ export default function outing( state = initialState, action ) {
 export function reset() {
   return { type: RESET };
 }
-//
-// export function loggingShit( mydata ) {
-//   // var x = JSON.parse(mydata)
-//   // var url = buildURL( location );
-//   // const promise2 = axios.get( url ).then( response => {
-//   var x  = mydata["coords"]
-//   var lattt = x["lat"]
-//   console.log(x);
-//   console.log(lattt);
-//     // const coords = promise.data.map(function(obj) { return obj["coords"] })
-//     // this.setState({ lat: coords["lat"] })
-//     // this.setState({ lon: coords["lon"] })
-//     // console.log(this.state.lat);
-//     // alert(this.state.lat)
-//   };
-//
-//   export function setOuting( location ) {
-//     var url = buildURL( location );
-//     var loki = axios.get( url ).then( response => {
-//       loggingShit( response.data )} );
-//     // we need a new url to the facebook api
-//
-
-  //   const promise = axios.get( url ).then( response => formatOutingData( response.data ) );
-  //    return {
-  //     type: SET_OUTING,
-  //     payload: promise
-  //   }
-  // }
 
 
+export function getlatlon(location){
 
-
-
-
-export function setOuting( location ) {
   var url = buildURL( location );
-  const promise = axios.get( url ).then( response => {
-    console.log(response.data.coord.lat);
-    console.log(response.data.coord.lon);
-    formatOutingData( response.data)
-  });
-
-   return {
-    type: SET_OUTING,
-    payload: promise
-  }
+  var reply = axios.get( url ).then(
+    response => {
+      var  thelat = response.data.coord.lat;
+      var  thelon = response.data.coord.lon;
+      console.log(thelat);
+      console.log(thelon);
+      return {
+        lat: thelat,
+        // lon: thelon
+      }
+    }
+  )
+  console.log(reply.lat);
+  // console.log(reply.lon);
+  // return [reply.lat,reply.lon]
 }
+
+
+export  function setOuting( location ) {
+  var url = buildURL( location );
+  var x = getlatlon(location)
+  console.log(x );
+  var fburl = buildEventsUrl(11,22);
+
+  const promisefb = axios.get( fburl ).then( response =>
+    console.log(response.data));
+    return {
+       payload: promisefb
+    }
+
+
+  const promise = axios.get( url ).then( response =>
+    formatOutingData( response.data) );
+    return {
+      type: SET_OUTING,
+      payload: promise
+    }
+  }
+
+
+
+  // export  function setOuting( location ) {
+  //   var url = buildURL( location );
+  //   var x = getlatlon(location)
+  //   console.log(x );
+  //   const promise = axios.get( url ).then( response =>
+  //     formatOutingData( response.data) );
+  //     return {
+  //       type: SET_OUTING,
+  //       payload: promise
+  //     }
+  //   }
