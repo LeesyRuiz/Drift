@@ -17,6 +17,7 @@ export function formatOutingData( outingData  )
 { return {
   // icon: getOutingIcon( 800),
   id: "87",
+  // lat: "",
   name: "ghasfgsd",
   icon: "ghasfgsd",
   description: "ghasfgsd",

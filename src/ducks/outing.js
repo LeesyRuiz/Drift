@@ -43,6 +43,35 @@ export default function outing( state = initialState, action ) {
 export function reset() {
   return { type: RESET };
 }
+//
+// export function loggingShit( mydata ) {
+//   // var x = JSON.parse(mydata)
+//   // var url = buildURL( location );
+//   // const promise2 = axios.get( url ).then( response => {
+//   var x  = mydata["coords"]
+//   var lattt = x["lat"]
+//   console.log(x);
+//   console.log(lattt);
+//     // const coords = promise.data.map(function(obj) { return obj["coords"] })
+//     // this.setState({ lat: coords["lat"] })
+//     // this.setState({ lon: coords["lon"] })
+//     // console.log(this.state.lat);
+//     // alert(this.state.lat)
+//   };
+//
+//   export function setOuting( location ) {
+//     var url = buildURL( location );
+//     var loki = axios.get( url ).then( response => {
+//       loggingShit( response.data )} );
+//     // we need a new url to the facebook api
+//
+
+  //   const promise = axios.get( url ).then( response => formatOutingData( response.data ) );
+  //    return {
+  //     type: SET_OUTING,
+  //     payload: promise
+  //   }
+  // }
 
 
 
@@ -50,10 +79,14 @@ export function reset() {
 
 
 export function setOuting( location ) {
-
   var url = buildURL( location );
-  const promise = axios.get( url ).then( response => formatOutingData( response.data ) );
-  return {
+  const promise = axios.get( url ).then( response => {
+    console.log(response.data.coord.lat);
+    console.log(response.data.coord.lon);
+    formatOutingData( response.data)
+  });
+
+   return {
     type: SET_OUTING,
     payload: promise
   }
