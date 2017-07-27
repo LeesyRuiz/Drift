@@ -1,10 +1,31 @@
 * {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  text-align: right;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
+#wrapper {
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0px);
+}
+
+.cta.small {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.cta {
+  font-size: 34px;
+  line-height: 40px;
+  font-family: Apercu;
+  font-weight: bold;
+  /* box-shadow: inset 0px -5px red;
+  border-bottom: 5px solid blue; */
+  background: linear-gradient(transparent, transparent 68%, #31F3C7 68%, #31F3C7 88%, transparent 88%, transparent);
+}
+
+.cta:hover {
+  background: linear-gradient(transparent, transparent 10%, #31F3C7 10%, #31F3C7 88%, transparent 88%, transparent);
+  cursor: pointer;
 }
