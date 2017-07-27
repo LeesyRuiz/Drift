@@ -67,18 +67,25 @@ export function getlatlon(location){
 
 
 export  function setOuting( location ) {
-  var url = buildURL( location );
+
+  // call weather api to get the lat,lon
   var x = getlatlon(location)
   console.log(x );
-  var fburl = buildEventsUrl(11,22);
 
+  // WORKING pick one event & send promise bck to outing data
+  // facebook api . call with queriers. return response to => format outing data ... to retuen even page
+var fburl = buildEventsUrl(11,22);
   const promisefb = axios.get( fburl ).then( response =>
     console.log(response.data));
-    return {
-       payload: promisefb
-    }
+console.log(fburl);
 
 
+
+
+
+// this is working but will be replace with the fb api call
+// function to format withour promise and call payload and type to send
+  var url = buildURL( location );
   const promise = axios.get( url ).then( response =>
     formatOutingData( response.data) );
     return {

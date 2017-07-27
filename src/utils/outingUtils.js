@@ -46,7 +46,7 @@ location: "ghasfgsd" };
 // EAACEdEose0cBACCiD5E6fbJYpky3u2HxvhPhHUwZBkWZBLqoWAE425WNznfMDe3ZCRA5KW2ZAkWWAfaxZAUhz7yyfLuSguOxzZBRijXK2hBJ3N3JOHkALJgq2li5wMLk0Cr0tvf6ZBStpza42L7uME6BaTXzZCIlfLVSrUdmbo2DZBv7gZAcD3ohiu0vPjTwlrn00ZD
 
 
-export function buildEventsUrl( lat , lon ) {
-  return EVENT_URL + `lat`+ 51.51 + 'lon=' + '-0.13'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBACCiD5E6fbJYpky3u2HxvhPhHUwZBkWZBLqoWAE425WNznfMDe3ZCRA5KW2ZAkWWAfaxZAUhz7yyfLuSguOxzZBRijXK2hBJ3N3JOHkALJgq2li5wMLk0Cr0tvf6ZBStpza42L7uME6BaTXzZCIlfLVSrUdmbo2DZBv7gZAcD3ohiu0vPjTwlrn00ZD'
+export function buildEventsUrl( lat , lng ) {
+  return EVENT_URL + `lat=`+ 51.51 + '&lng=' + '-0.13'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBACCiD5E6fbJYpky3u2HxvhPhHUwZBkWZBLqoWAE425WNznfMDe3ZCRA5KW2ZAkWWAfaxZAUhz7yyfLuSguOxzZBRijXK2hBJ3N3JOHkALJgq2li5wMLk0Cr0tvf6ZBStpza42L7uME6BaTXzZCIlfLVSrUdmbo2DZBv7gZAcD3ohiu0vPjTwlrn00ZD'
 }
 export function buildURL( location ) { if ( isZipCode( location ) ) { return BASE_URL + `zip=${location}`; } return BASE_URL + `q=${location}`; }
