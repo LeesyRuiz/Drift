@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { setOuting } from '../../ducks/outing';
 
+import { setOuting } from '../../ducks/outing';
 import "./EnterLocation.css";
 
 class EnterLocation extends Component {
@@ -26,23 +26,32 @@ class EnterLocation extends Component {
   }
 
   render() {
+
     return (
+
       <form
         className="enter-location"
         onSubmit={ this.handleSubmit }
-      >
+        >
+
+
         <input
           className="enter-location__input"
           onChange={ this.handleChange }
           placeholder="London / 84601"
           type="text"
           value={ this.state.location }
-        />
+          />
+
+
+
+
         <button
           className="enter-location__submit"
-        >
+          >
           Submit
         </button>
+
       </form>
     );
   }

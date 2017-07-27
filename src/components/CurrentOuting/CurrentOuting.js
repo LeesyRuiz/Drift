@@ -4,52 +4,52 @@ import "./CurrentOuting.css";
 
 export default function CurrentOuting( { outing, reset } ) {
   const {
-    currentTemperature,
-    humidity,
+    id,
+    name,
     icon,
+    description,
+    startTime,
+    distance,
     location,
-    maxTemperature,
-    minTemperature,
-    wind
   } = outing;
   return (
     <div className="current-outing">
       <div className="current-outing__outing">
-        <h3 className="current-outing__location"> { location } </h3>
+        <h3 className="current-outing__location"> { name } </h3>
         <img
           alt="current outing icon"
           className="current-outing__icon"
           src={ icon }
-        />
-        <h3 className="current-outing__temp"> { currentTemperature }° </h3>
+          />
+        <h3 className="current-outing__temp"> { description } </h3>
 
         <div className="current-outing__separator" />
 
         <ul className="current-outing__stats">
-          <li className="current-outing__stat">Max: { maxTemperature }°</li>
-          <li className="current-outing__stat">Min: { minTemperature }°</li>
-          <li className="current-outing__stat">Wind: { wind } MPH</li>
-          <li className="current-outing__stat">Humidity: { humidity }%</li>
+          <li className="current-outing__stat">{distance}</li>
+          <li className="current-outing__stat">{startTime}</li>
+          <li className="current-outing__stat">{id}</li>
+          <li className="current-outing__stat">{location}</li>
         </ul>
       </div>
       <button
         className="current-outing__search-again"
         onClick={ reset }
-      >
+        >
         Search Again
       </button>
     </div>
   );
-  }
+}
 
-  CurrentOuting.propTypes = {
-    reset: PropTypes.func.isRequired
+CurrentOuting.propTypes = {
+  reset: PropTypes.func.isRequired
   , outing: PropTypes.shape( {
-      icon: PropTypes.string.isRequired
-    , currentTemperature: PropTypes.number.isRequired
-    , maxTemperature: PropTypes.number.isRequired
-    , minTemperature: PropTypes.number.isRequired
-    , wind: PropTypes.number.isRequired
-    , humidity: PropTypes.number.isRequired
+    icon: PropTypes.string.isRequired
+    , id: PropTypes.string.isRequired
+    , name: PropTypes.string.isRequired
+    , description: PropTypes.string.isRequired
+    , location: PropTypes.string.isRequired
+    , distance: PropTypes.string.isRequired
   } ).isRequired
 };

@@ -43,7 +43,7 @@ class App extends Component {
 
 
       <div className="app">
-       <h1 className="app__title">OUTINGMAN</h1>
+       <h1 className="app__title"> Drift </h1>
       { this.renderChildren() }
     </div>
 
