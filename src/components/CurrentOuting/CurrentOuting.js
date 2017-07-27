@@ -3,6 +3,10 @@ import React, { PropTypes } from "react";
 import "./CurrentOuting.css";
 
 export default function CurrentOuting( { outing, reset } ) {
+  console.log("in function currentOuting for form");
+  console.log( this );
+  console.log( outing );
+
   const {
     id,
     name,
@@ -12,6 +16,7 @@ export default function CurrentOuting( { outing, reset } ) {
     distance,
     location,
   } = outing;
+
   return (
     <div className="current-outing">
       <div className="current-outing__outing">

@@ -45,54 +45,53 @@ export function reset() {
 }
 
 
-export function getlatlon(location){
+// export function getlatlon(location){
+//
+//   var url = buildURL( location );
+//   var reply = axios.get( url ).then(
+//     response => {
+//       var  thelat = response.data.coord.lat;
+//       var  thelon = response.data.coord.lon;
+//       console.log(thelat);
+//       console.log(thelon);
+//       return {
+//         lat: thelat,
+//         // lon: thelon
+//       }
+//     }
+//   )
+//   console.log(reply.lat);
+//   // console.log(reply.lon);
+//   // return [reply.lat,reply.lon]
+// }
 
-  var url = buildURL( location );
-  var reply = axios.get( url ).then(
-    response => {
-      var  thelat = response.data.coord.lat;
-      var  thelon = response.data.coord.lon;
-      console.log(thelat);
-      console.log(thelon);
-      return {
-        lat: thelat,
-        // lon: thelon
-      }
-    }
-  )
-  console.log(reply.lat);
-  // console.log(reply.lon);
-  // return [reply.lat,reply.lon]
+
+export function setOuting( location ) {
+  // this is working but will be replace with the fb api call
+  // function to format withour promise and call payload and type to send
+  const url = buildEventsUrl( location );
+
+  const promise = axios.get( url )
+  console.log(promise);
+  return {
+    type: SET_OUTING,
+    payload: promise
+  };
 }
 
-
-export  function setOuting( location ) {
-
   // call weather api to get the lat,lon
-  var x = getlatlon(location)
-  console.log(x );
+  // var x = getlatlon(location)
+  // console.log(x );
 
   // WORKING pick one event & send promise bck to outing data
   // facebook api . call with queriers. return response to => format outing data ... to retuen even page
-var fburl = buildEventsUrl(11,22);
-  const promisefb = axios.get( fburl ).then( response =>
-    console.log(response.data));
-console.log(fburl);
+  // var fburl = buildEventsUrl(11,22);
+  // const promisefb = axios.get( fburl )
+  // .then(
+  //   response => { console.log(response.data) }
+  // );
+  // console.log(fburl);
 
-
-
-
-
-// this is working but will be replace with the fb api call
-// function to format withour promise and call payload and type to send
-  var url = buildURL( location );
-  const promise = axios.get( url ).then( response =>
-    formatOutingData( response.data) );
-    return {
-      type: SET_OUTING,
-      payload: promise
-    }
-  }
 
 
 
