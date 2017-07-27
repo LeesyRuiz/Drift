@@ -4,7 +4,8 @@ import "./CurrentOuting.css";
 
 export default function CurrentOuting( { outing, reset } ) {
   console.log("in function currentOuting for form");
-  console.log( this );
+  // console.log( this );
+  // we are getting the array of data from the api :)
   console.log( outing );
 
   const {

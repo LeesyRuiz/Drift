@@ -25,7 +25,7 @@ export default function outing( state = initialState, action ) {
       error: false,
       loading: false,
       search: false,
-      outing: action.payload
+      outing: action.payload.data.events[0]
     };
     case SET_OUTING + "_REJECTED":
     return {
