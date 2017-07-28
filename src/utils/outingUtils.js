@@ -38,6 +38,6 @@ const BASE_URL = `http://api.openweathermap.org/data/2.5/weather?APPID=${ API_KE
 // }l
  export function buildEventsUrl( lat , lng ) {
 
-  return EVENT_URL + `lat=`+ 47.617 + '&lng=' + '-122.332'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBAClPIqj7LdF7XQ6fefjqsbtgYZCTpAQzt96j5pjsZAMQbOZBcCJy9DMCZBWmRjUFFHWnZAxSKOdRVAZAcm9B7QdGhri6ZAMGsvyeIImXXjhpguVTwZC7ZASUODgOXtszfq2WZASxZByM3ItevtEsWbPMSch7MsJ2gw47RgqoEMkVaObTZCo1BGd6fbMZD'
+  return EVENT_URL + `lat=`+ 47.617 + '&lng=' + '-122.332'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBAJgafANFQKPjZCuOZCZBgDBlvrn0OBjeHpgoGkifWWnCDduchHXHRTOYk7uwXqZATsTl1d3ovXZAyG8TmliPHCZB1x4SW2jHbnqWtT4PS9afUnRMH0ZACoERy8dR394oVCrnbgep8ZBFtDADL6ZAVzq7scZBTqew6kaNdfQutBD56TMFPOgbLSHH8ZD'
 }
 export function buildURL( location ) { if ( isZipCode( location ) ) { return BASE_URL + `zip=${location}`; } return BASE_URL + `q=${location}`; }

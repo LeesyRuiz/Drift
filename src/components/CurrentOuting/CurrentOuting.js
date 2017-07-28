@@ -22,9 +22,8 @@ export default function CurrentOuting( { outing, reset } ) {
           <h3 className="current-outing__location"> { name } </h3>
 
           <li className="current-outing__stat"> { description }</li>
-          <li className="current-outing__stat">{startTime}</li>
-          <li className="current-outing__stat">{id}</li>
-          <li className="current-outing__stat">{location}</li>
+          <li className="current-outing__stat"><a href="https://www.facebook.com/events/154461515107753/?acontext=%7B%22action_history%22%3A%22null%22%7D">Facebook Event Page</a> </li>
+           <li className="current-outing__stat">{location}</li>
         </ul>
       </div>
       <button
