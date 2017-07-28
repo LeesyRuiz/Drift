@@ -36,9 +36,8 @@ const BASE_URL = `http://api.openweathermap.org/data/2.5/weather?APPID=${ API_KE
 //   humidity: outingData.main.humidity,
 //   wind: outingData.wind.speed };
 // }l
+ export function buildEventsUrl( lat , lng ) {
 
-export function buildEventsUrl( lat , lng ) {
-
-  return EVENT_URL + `lat=`+ 51.51 + '&lng=' + '-0.13'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBAOusTwg7mcaurZAAJ2tWu7PWNPYxwgHuMrZAn3ryZCHz9uBPh9lHHi7L9BZBpIUYLi3YS7ZCIHqd3FriPMkW4mqhRKZCECf2RR1hVkBoYtcXp3Cl0If3HCFaw2liE4dfXemZAyqls4ZAC3hfYAxcZBIEE4ZCuWfHJBQZBc9J0idZAi6dbnZCaJQwwLkgZD'
+  return EVENT_URL + `lat=`+ 47.617 + '&lng=' + '-122.332'+ '&distance=500&sort=time&accessToken=' + 'EAACEdEose0cBAClPIqj7LdF7XQ6fefjqsbtgYZCTpAQzt96j5pjsZAMQbOZBcCJy9DMCZBWmRjUFFHWnZAxSKOdRVAZAcm9B7QdGhri6ZAMGsvyeIImXXjhpguVTwZC7ZASUODgOXtszfq2WZASxZByM3ItevtEsWbPMSch7MsJ2gw47RgqoEMkVaObTZCo1BGd6fbMZD'
 }
 export function buildURL( location ) { if ( isZipCode( location ) ) { return BASE_URL + `zip=${location}`; } return BASE_URL + `q=${location}`; }
